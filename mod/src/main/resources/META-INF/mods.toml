@@ -3,11 +3,11 @@ loaderVersion="[28,)" #mandatory (28 is current forge version)
 
 [[mods]]
 modId="humandynamics" #mandatory
-version="${file.jarVersion}" #mandatory
+version="1.0.0
 displayName="Human Dynamics"
 
 # A file name (in the root of the mod JAR) containing a logo for display
-logoFile="examplemod.png" #optional
+logoFile="humandynamics.jpg" #optional
 
 credits="Thank You! To all of our supporters!"
 authors="The HomanoidDynacmics Crew"
