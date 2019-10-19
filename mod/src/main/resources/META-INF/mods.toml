@@ -3,41 +3,38 @@
 # The overall format is standard TOML format, v0.5.0.
 # Note that there are a couple of TOML lists in this file.
 # Find more information on toml format here:  https://github.com/toml-lang/toml
-
 # The name of the mod loader type to load - for regular FML @Mod mods it should be javafml
 modLoader="javafml" #mandatory
-
 # A version range to match for said mod loader - for regular FML @Mod it will be the forge version
 loaderVersion="[28,)" #mandatory (28 is current forge version)
-
 # A URL to refer people to when problems occur with this mod
 issueTrackerURL="http://my.issue.tracker/" #optional
-
-
 
 # A list of mods - how many allowed here is determined by the individual mod loader
 [[mods]]
 modId="humandynamics" #mandatory
 version="${file.jarVersion}" #mandatory
-displayName="Human Dynamics" #mandatory
+displayName="Human Dynamics"
 
-updateJSONURL="" #optional
+# A URL to query for updates for this mod. See the JSON update specification <here>
+updateJSONURL="http://myurl.me/" #optional
+# A URL for the "homepage" for this mod, displayed in the mod UI
 displayURL="http://example.com/" #optional
+# A file name (in the root of the mod JAR) containing a logo for display
 logoFile="examplemod.png" #optional
 
-credits="Thank you to all of our supporters :D" #optional
-authors="The Humanoid Dynamics Crew" #optional
+credits="Thank You! To all of our supporters!"
+authors="The HomanoidDynacmics Crew"
 description='''
-For a more dynamic world full of fun and adventure ;D
+For a HUGE experience with villagers
 '''
-
-[[dependencies.humandynamics]] #optional
-    modId="forge" #mandatory
-    mandatory=true #mandatory
-	versionRange="[28,)"
+[[dependencies.humandynamics]]
+    modId="forge"
+    mandatory=true
+    versionRange="[28,)"
     ordering="NONE"
-   	side="BOTH"
-    
+    side="BOTH"
+
 [[dependencies.humandynamics]]
     modId="minecraft"
     mandatory=true
