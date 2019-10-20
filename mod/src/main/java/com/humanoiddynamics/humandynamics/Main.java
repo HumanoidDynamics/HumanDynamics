@@ -3,14 +3,18 @@ package com.humanoiddynamics.humandynamics;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.humanoiddynamics.humandynamics.entities.Humanoid;
 import com.humanoiddynamics.humandynamics.lists.BlockList;
-import com.humanoiddynamics.humandynamics.lists.HumanDynamicsItemGroup;
+import com.humanoiddynamics.humandynamics.lists.EntityList;
 import com.humanoiddynamics.humandynamics.lists.ItemList;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
+import net.minecraft.entity.EntityClassification;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.passive.ChickenEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.util.ResourceLocation;
@@ -61,6 +65,17 @@ public class Main {
 		public static void registerBlock(final RegistryEvent.Register<Block> event) {
 			event.getRegistry().registerAll(
 				BlockList.test_block = new Block(Block.Properties.create(Material.CLAY).hardnessAndResistance(2.0f, 3.0f).lightValue(12).sound(SoundType.METAL)).setRegistryName(new ResourceLocation(MOD_ID, "test_block"))
+			);
+		}
+		
+		@SubscribeEvent
+		public static void registerEntities(final RegistryEvent.Register<EntityType<?>> event) {
+			event.getRegistry().registerAll(
+				EntityList.humanoid = EntityType.Builder.create(Humanoid::new,EntityClassification.MISC).
+					setShouldReceiveVelocityUpdates(true).
+					setTrackingRange(15).
+					setUpdateInterval(60).
+					build("humanoid").setRegistryName(MOD_ID, "humanoid")
 			);
 		}
 	}

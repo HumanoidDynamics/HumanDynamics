@@ -1,4 +1,6 @@
-package com.humanoiddynamics.humandynamics.lists;
+package com.humanoiddynamics.humandynamics;
+
+import com.humanoiddynamics.humandynamics.lists.ItemList;
 
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
