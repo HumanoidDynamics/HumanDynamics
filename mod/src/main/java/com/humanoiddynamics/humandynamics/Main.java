@@ -4,6 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.humanoiddynamics.humandynamics.lists.BlockList;
+import com.humanoiddynamics.humandynamics.lists.HumanDynamicsItemGroup;
 import com.humanoiddynamics.humandynamics.lists.ItemList;
 
 import net.minecraft.block.Block;
@@ -28,6 +29,8 @@ public class Main {
 	public final static String MOD_ID = "humandynamics";
 	private static final Logger logger = LogManager.getLogger(MOD_ID);
 	
+	public static final ItemGroup humandynamics = new HumanDynamicsItemGroup();
+	
 	public Main() {
 		instance = this;
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
@@ -48,9 +51,9 @@ public class Main {
 		@SubscribeEvent
 		public static void registerItems(final RegistryEvent.Register<Item> event) {
 			event.getRegistry().registerAll(
-				ItemList.for_test_purposes = new Item(new Item.Properties().group(ItemGroup.MISC)).setRegistryName(new ResourceLocation(MOD_ID, "for_test_purposes")),
-				
-				ItemList.test_block = new BlockItem(BlockList.test_block, new Item.Properties().group(ItemGroup.MISC)).setRegistryName(BlockList.test_block.getRegistryName())
+				ItemList.for_test_purposes = new Item(new Item.Properties().group(humandynamics)).setRegistryName(new ResourceLocation(MOD_ID, "for_test_purposes")), 
+				//instead of humandynaimcs as an itemgroup: e.g. ItemGroup.MISC would also be possible (vanilla creative tabs)
+				ItemList.test_block = new BlockItem(BlockList.test_block, new Item.Properties().group(humandynamics)).setRegistryName(BlockList.test_block.getRegistryName())
 			);
 		}
 		
