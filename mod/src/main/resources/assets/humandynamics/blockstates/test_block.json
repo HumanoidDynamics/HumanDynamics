@@ -1,0 +1,5 @@
+{
+    "variants": {
+        "": { "model": "humandynamics:block/test_block" }
+    }
+}

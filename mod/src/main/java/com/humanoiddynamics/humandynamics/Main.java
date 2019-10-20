@@ -3,8 +3,13 @@ package com.humanoiddynamics.humandynamics;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.humanoiddynamics.humandynamics.lists.BlockList;
 import com.humanoiddynamics.humandynamics.lists.ItemList;
 
+import net.minecraft.block.Block;
+import net.minecraft.item.BlockItem;
+import net.minecraft.block.SoundType;
+import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.util.ResourceLocation;
@@ -43,7 +48,16 @@ public class Main {
 		@SubscribeEvent
 		public static void registerItems(final RegistryEvent.Register<Item> event) {
 			event.getRegistry().registerAll(
-				ItemList.for_test_purposes = new Item(new Item.Properties().group(ItemGroup.MISC)).setRegistryName(new ResourceLocation(MOD_ID, "for_test_purposes"))
+				ItemList.for_test_purposes = new Item(new Item.Properties().group(ItemGroup.MISC)).setRegistryName(new ResourceLocation(MOD_ID, "for_test_purposes")),
+				
+				ItemList.test_block = new BlockItem(BlockList.test_block, new Item.Properties().group(ItemGroup.MISC)).setRegistryName(BlockList.test_block.getRegistryName())
+			);
+		}
+		
+		@SubscribeEvent
+		public static void registerBlock(final RegistryEvent.Register<Block> event) {
+			event.getRegistry().registerAll(
+				BlockList.test_block = new Block(Block.Properties.create(Material.CLAY).hardnessAndResistance(2.0f, 3.0f).lightValue(12).sound(SoundType.METAL)).setRegistryName(new ResourceLocation(MOD_ID, "test_block"))
 			);
 		}
 	}
