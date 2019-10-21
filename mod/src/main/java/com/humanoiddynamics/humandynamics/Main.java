@@ -17,6 +17,7 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.passive.ChickenEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.item.SpawnEggItem;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
@@ -59,6 +60,7 @@ public class Main {
 				//instead of humandynaimcs as an itemgroup: e.g. ItemGroup.MISC would also be possible (vanilla creative tabs)
 				ItemList.test_block = new BlockItem(BlockList.test_block, new Item.Properties().group(humandynamics)).setRegistryName(BlockList.test_block.getRegistryName())
 			);
+			EntityList.registerSpawnEggs(event);
 		}
 		
 		@SubscribeEvent
@@ -71,11 +73,7 @@ public class Main {
 		@SubscribeEvent
 		public static void registerEntities(final RegistryEvent.Register<EntityType<?>> event) {
 			event.getRegistry().registerAll(
-				EntityList.humanoid = EntityType.Builder.create(Humanoid::new,EntityClassification.MISC).
-					setShouldReceiveVelocityUpdates(true).
-					setTrackingRange(15).
-					setUpdateInterval(60).
-					build("humanoid").setRegistryName(MOD_ID, "humanoid")
+				EntityList.humanoid
 			);
 		}
 	}

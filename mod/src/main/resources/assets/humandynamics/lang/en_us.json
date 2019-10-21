@@ -1,5 +1,6 @@
 {
 	"item.humandynamics.for_test_purposes":"For Test Purposes",
-	"block.humandynamics.test_block":"Test Block"
+	"item.humandynamics.humanoid_spawn_egg":"Humanoid Spawn Egg",
+	"block.humandynamics.test_block":"Test Block",
 	"itemGroup.humandynamics":"Human Dynamics"
 }
